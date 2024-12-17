@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+    <h2>This is book review home page</h2><br>
+
+    <table border='1'>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Published Date</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Show Book</th>
+        </tr>
+        {% for bs in books %}
+        <tr>
+            <td><b>{{ bs.title }}</b></td>
+            <td>{{ bs.description }}</td>
+            <td>{{ bs.author }}</td>
+            <td>{{ bs.published_date }}</td>
+            <td>{{ bs.created_at }}</td>
+            <td>{{ bs.updated_at }}</td>
+            <td><a href="{% url 'book_detail' bs.id %}"><button>Show</button></a></td>
+        </tr>
+        {% endfor %} 
+    </table>
+{% endblock %}
